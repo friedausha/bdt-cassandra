@@ -8,8 +8,8 @@ var routes = require('./routes');
 var http = require('http');
 var path = require('path');
 
-//load customers route
-var customers = require('./routes/customers');
+//load countries route
+var countries = require('./routes/countries');
 //load cassandra route
 var cassandrainfo = require('./routes/cassandrainfo');
 
@@ -32,13 +32,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', routes.index);
 app.get('/cassandrainfo', cassandrainfo.init_cassandra);
-app.get('/customers', customers.list);
-app.get('/customers/add', customers.add);
-app.post('/customers/add', customers.save);
-app.get('/customers/delete/:id', customers.delete_customer);
-app.get('/customers/edit/:id', customers.edit);
-app.post('/customers/edit/:id',customers.save_edit);
-
+app.get('/countries', countries.list);
+app.get('/countries/add', countries.add);
+app.post('/countries/add', countries.save);
+app.get('/countries/delete/:country', countries.delete_country);
+app.get('/countries/edit/:country', countries.edit);
+app.post('/countries/edit/:country',countries.save_edit);
+app.get('/countries/search/:region', countries.search_country);
 
 app.use(app.router);
 

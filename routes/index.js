@@ -4,7 +4,7 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { page_title: 'Hello Container World' });
+  res.render('index', { page_title: 'Hello World' });
 
 };
 

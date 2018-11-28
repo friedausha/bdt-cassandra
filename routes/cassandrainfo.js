@@ -10,17 +10,21 @@ exports.init_cassandra = function(req, res){
 
 	client.connect()
 		.then(function () {
-			const query = "CREATE KEYSPACE IF NOT EXISTS people WITH replication =" +
+			const query = "CREATE KEYSPACE IF NOT EXISTS countries WITH replication =" +
 			  "{'class': 'SimpleStrategy', 'replication_factor': '1' }";
 			return client.execute(query);
 		})
 		.then(function () {
-			const query = "CREATE TABLE IF NOT EXISTS people.subscribers" +
-				" (id uuid, name text, address text, email text, phone text, PRIMARY KEY (id))";
+			const query = "create table if not exists countries.countries (country varchar primary key, " +
+				"region varchar, population varchar, area varchar, population_density varchar, " +
+				"coastline varchar, net_migration varchar, infant_mortality varchar, gdp varchar," +
+				" literacy varchar, phones varchar, arable varchar, crops varchar, other varchar, " +
+				"climate varchar, birthrate varchar, deathrate varchar, agriculture varchar," +
+				" industry varchar, service varchar);";
 			return client.execute(query);
 		})
 		.then(function () {
-			return client.metadata.getTable('people', 'subscribers');
+			return client.metadata.getTable('countries', 'countries');
 		})
 		.then(function (table) {
 			console.log('Table information');

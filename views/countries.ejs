@@ -2,16 +2,24 @@
 
         <div class="page-data">
          <div class="data-btn">
-           <button onClick="addUser();">+ Add</button>
+             <tr>
+                 <td class="label">Search Region</td><td>: <input type="text" id="region"></td>
+             </tr>
+             <td>
+                 <a class="a-inside search"
+                    href="" onclick="this.href='../countries/search/'+document.getElementById('region').value">Search</a>
+             </td>
+         </div>
+         <div class="data-btn">
+           <button onClick="addCountry();">+ Add</button>
          </div>
          <div class="data-table">
             <table border="1" cellpadding="7" cellspacing="7">
                 <tr>
                     <th width="50px">No</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Email</th>
+                    <th>Country</th>
+                    <th>Region</th>
+                    <th>Population</th>
                     <th width="120px">Action</th>
                 </tr>
                
@@ -21,15 +29,13 @@
                  
                 <tr>
                     <td><%=(i+1)%></td>
-                    <td><%=data[i].name%></td>
-                    <td><%=data[i].address%></td>
-                    <td><%=data[i].phone%></td>
-                    <td><%=data[i].email%></td>
+                    <td><%=data[i].country%></td>
+                    <td><%=data[i].region%></td>
+                    <td><%=data[i].population%></td>
                     <td>
-                        <a class="a-inside edit" href="../customers/edit/<%=data[i].id%>">Edit</a>
+                        <a class="a-inside edit" href="../countries/edit/<%=data[i].country%>">Edit</a>
                        
-                        <a class="a-inside delete" href="../customers/delete/<%=data[i].id%>">Delete</a>
-                       
+                        <a class="a-inside delete" href="../countries/delete/<%=data[i].country%>">Delete</a>
                     </td>
                 </tr>
             <% }

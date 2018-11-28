@@ -1,0 +1,29 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+            <form method="post" action="/countries/edit/<%=data[0].country%>">
+                <table cellpadding="11">
+                <tr>
+                    <td class="label">Country</td><td>: <input type="text" name="country"
+                                                               value="<%=data[0].country%>" required></td>
+                 </tr>
+                <tr>
+                    <td class="label">Region</td><td>: <input type="text" value="<%=data[0].region%>" name="region" required></td>
+                 </tr>
+                  <tr>
+                    <td class="label">Population</td><td>: <input type="text" name="population" value="<%=data[0].population%>"></td>
+                 </tr>
+                 <tr>
+                    <td class="label"></td>
+                    <td>
+                        &nbsp;
+                        <input type="submit" name="submit" value="Save">
+                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                    </td>
+                 </tr>
+                </table>
+            </form>
+            
+        </div>
+        
+<%- include layouts/footer.ejs %>

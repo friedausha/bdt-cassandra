@@ -58,6 +58,8 @@ a {
 .a-inside.edit{background-color:#00CC00;color:#fff;}
 .a-inside.delete{background-color:#D23641;color:#fff;}
 .a-inside.init{background-color:#FF0000;color:#fff;}
+.a-inside.search{
+    background-color: royalblue;color:#fff;}
 .a-inside.btn{background-color:#6495ED;color:#fff;}
 
 input[type="text"]{
